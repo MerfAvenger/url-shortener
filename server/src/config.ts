@@ -1,8 +1,11 @@
 import "dotenv/config";
 
-const port = process.env.PORT || 3000;
-const appDirectory = process.env.APP_DIRECTORY || "app";
+const host = process.env.SERVER_HOST || "localhost";
+const port = process.env.SERVER_PORT || 3000;
+const appDirectory = process.env.APP_DIRECTORY || "client";
 
 export default {
+  appDirectory,
+  host,
   port,
 };

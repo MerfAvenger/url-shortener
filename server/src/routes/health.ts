@@ -1,4 +1,4 @@
-import { Route, Method } from "../types";
+import type { Route, Method } from "../types";
 
 const method: Method = "GET";
 const path = "/health";

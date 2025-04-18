@@ -4,8 +4,9 @@ import config from "./config";
 
 const app = express();
 app.use(express.json());
-app.use("/", router);
+app.use(router);
 
 app.listen(config.port, () => {
   console.log(`Server is running on port ${config.port}`);
+  console.log("Current working directory: ", __dirname);
 });
