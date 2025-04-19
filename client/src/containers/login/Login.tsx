@@ -1,19 +1,50 @@
 import { createAccount, login } from "./actions";
 import "./Login.css";
 
-export type LoginProps = {};
+export type LoginProps = {
+  setUserEmail: (email: string | null) => void;
+  setUserId: (id: number | null) => void;
+};
 
-export default function Login(_props: LoginProps) {
+export default function Login(props: LoginProps) {
+  const { setUserEmail, setUserId } = props;
+
   return (
     <div className="login container">
-      <form className="login__form" onSubmit={login}>
+      <form
+        className="login__form"
+        onSubmit={(event) => {
+          login(event, setUserEmail, setUserId).catch((error) => {
+            console.error("Login error:", error);
+            alert("Login failed. Please try again.");
+          });
+        }}
+      >
         <div className="login__actions">
           <p>
             Log into or create an account to create or view your shortened URLs
           </p>
           <div className="login__actions__buttons">
-            <button onClick={login}>Log in</button>
-            <button onClick={createAccount}>Create account</button>
+            <button
+              onClick={(event) => {
+                login(event, setUserEmail, setUserId).catch((error) => {
+                  console.error("Login error:", error);
+                  alert("Login failed. Please try again.");
+                });
+              }}
+            >
+              Log in
+            </button>
+            <button
+              onClick={(event) => {
+                createAccount(event, setUserEmail, setUserId).catch((error) => {
+                  console.error("Create account error:", error);
+                  alert("Account creation failed. Please try again.");
+                });
+              }}
+            >
+              Create account
+            </button>
           </div>
         </div>
         <fieldset className="login__fieldset">

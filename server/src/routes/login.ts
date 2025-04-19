@@ -4,7 +4,7 @@ import isEmail from "validator/lib/isEmail";
 import isStrongPassword from "validator/lib/isStrongPassword";
 
 const method: Method = "POST";
-const path = "/login";
+const path = "/api/login";
 const handler = async function (req, res) {
   const { email, password } = req.body;
   console.log(`Received request to login to user ${email}.`);
@@ -22,7 +22,7 @@ const handler = async function (req, res) {
     }
 
     console.log(`User ${user.email} logged in successfully:`);
-    return res.status(200).send({ email });
+    return res.status(200).send({ email: user.email, id: user.id });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).send("Internal server error");
