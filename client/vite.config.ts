@@ -13,9 +13,6 @@ export default (
     plugins: [react()],
     server: {
       cors: { origin: process.env.VITE_BASE_URL ?? "http://localhost:8081" },
-      proxy: {
-        "/": process.env.VITE_BASE_URL ?? "http://localhost:8081",
-      },
     },
     build: {
       manifest: true,
