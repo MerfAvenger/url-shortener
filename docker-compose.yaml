@@ -5,7 +5,6 @@ services:
       dockerfile: App.Dockerfile
       args:
         - SERVER_PORT=${SERVER_PORT}
-        - IMAGE=${IMAGE}
         - APP_DIRECTORY=${APP_DIRECTORY}
     container_name: ${IMAGE}
     env_file:

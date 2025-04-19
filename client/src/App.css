@@ -2,4 +2,30 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: slategray;
+
+  border-radius: 0.75rem;
+  height: fit-content;
+}
+
+.highlight {
+  background-color: var(--highlight-colour);
+  width: 100%;
+
+  border-radius: 0.75rem 0.75rem 0 0;
 }
