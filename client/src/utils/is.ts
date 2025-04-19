@@ -1,5 +1,5 @@
 export function isFormElement(
-  element: EventTarget,
+  element?: EventTarget | null,
 ): element is HTMLFormElement {
   return element instanceof HTMLFormElement;
 }

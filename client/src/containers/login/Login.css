@@ -40,7 +40,7 @@ fieldset input:invalid {
   border: 0.1rem solid var(--invalid-colour);
 }
 
-.login__form input[type="submit"] {
+.login__form button {
   padding: 0.25rem 0.75rem;
 }
 

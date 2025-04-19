@@ -3,7 +3,7 @@ import "./Login.css";
 
 export type LoginProps = {};
 
-export default function Login(props: LoginProps) {
+export default function Login(_props: LoginProps) {
   return (
     <div className="login container">
       <form className="login__form" onSubmit={login}>
@@ -12,12 +12,8 @@ export default function Login(props: LoginProps) {
             Log into or create an account to create or view your shortened URLs
           </p>
           <div className="login__actions__buttons">
-            <input type="submit" value="Log in" onSubmit={login} />
-            <input
-              type="submit"
-              value="Create account"
-              onSubmit={createAccount}
-            />
+            <button onClick={login}>Log in</button>
+            <button onClick={createAccount}>Create account</button>
           </div>
         </div>
         <fieldset className="login__fieldset">
@@ -36,7 +32,7 @@ export default function Login(props: LoginProps) {
             name="password"
             placeholder="Enter your password"
             required
-            minLength={12}
+            minLength={8}
             maxLength={128}
           />
         </fieldset>

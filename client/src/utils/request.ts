@@ -7,13 +7,20 @@ export default async function submitFormRequest(
 ) {
   submitEvent.preventDefault();
 
-  const submitTarget = submitEvent.target;
+  const submitTarget = submitEvent.currentTarget;
+  const form = submitTarget.parentElement?.closest("form");
 
-  if (isFormElement(submitTarget)) {
-    const form = submitTarget;
+  if (isFormElement(form)) {
+    if (!form) {
+      throw new Error(
+        "Can't submit data from the form: could not find parent form for submit event.",
+      );
+    }
 
     const formData = new FormData(form);
     const formObject = Object.fromEntries(formData.entries());
+
+    console.log("Submitting data to", path, formObject);
 
     await fetch(path, {
       method: "POST",
