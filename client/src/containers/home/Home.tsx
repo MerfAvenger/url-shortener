@@ -1,6 +1,7 @@
 import "./Home.css";
 
 import Login from "../login/Login";
+import CreateUrl from "../create-url/CreateUrl";
 
 export type HomeProps = {
   userEmail: string | null;
@@ -16,8 +17,10 @@ export default function Home(props: HomeProps) {
     <div className="home container">
       <div className="highlight" />
       <h1>Shorten your URLs</h1>
-      {(!userEmail || !userId) && (
+      {!userEmail || !userId ? (
         <Login setUserEmail={setUserEmail} setUserId={setUserId} />
+      ) : (
+        <CreateUrl userId={userId} />
       )}
     </div>
   );

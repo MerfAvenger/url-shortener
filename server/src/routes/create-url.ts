@@ -5,28 +5,35 @@ import isUrl from "validator/lib/isURL";
 const method: Method = "POST";
 const path = "/api/create-url";
 const handler = async function (req, res) {
-  const {
-    url,
-    user: { id, email },
-  } = req.body;
-  console.log(`Received request to create URL: ${url}.`);
+  const { long, id } = req.body;
 
   try {
-    if (!isUrl(url)) {
-      console.warn(`Failed to create URL ${url}: Invalid URL`);
+    const parsedUserId = parseInt(id);
+    console.log(
+      `Received request to create URL ${long} from user ${parsedUserId}.`
+    );
+
+    if (!long || !isUrl(long)) {
+      console.warn(`Failed to create URL ${long}: Invalid URL`);
       res.status(400).send("Invalid URL.");
       return;
     }
 
-    const processedUrl = await URLService.createUrl(id, url);
+    if (!parsedUserId || typeof parsedUserId !== "number") {
+      console.warn(`Failed to create URL ${long}: Invalid user ID`);
+      res.status(400).send("Invalid user ID.");
+      return;
+    }
+
+    const processedUrl = await URLService.createUrl(parsedUserId, long);
     if (!processedUrl) {
-      console.warn(`Failed to create URL ${url} for user ${email}.`);
+      console.warn(`Failed to create URL ${long} for user ${parsedUserId}.`);
       res.status(400).send("Failed to create URL.");
       return;
     }
 
     console.log(
-      `URL ${processedUrl.slug} created successfully for user ${email}.`
+      `URL ${processedUrl.slug} created successfully for user ${parsedUserId}.`
     );
     res.status(201).send({
       slug: processedUrl.slug,

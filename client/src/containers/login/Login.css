@@ -25,18 +25,18 @@
   width: 100%;
 }
 
-fieldset input {
+.login__form fieldset input {
   padding: 0.25rem 0.25rem;
   min-width: 10vw;
   width: fit-content;
   max-width: 100%;
 }
 
-fieldset input:valid {
+.login__form fieldset input:valid {
   border: 0.1rem solid var(--valid-colour);
 }
 
-fieldset input:invalid {
+.login__form fieldset input:invalid {
   border: 0.1rem solid var(--invalid-colour);
 }
 
@@ -54,7 +54,7 @@ fieldset input:invalid {
   width: 100%;
 }
 
-form {
+.login__form {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -65,7 +65,7 @@ form {
   width: 100%;
 }
 
-fieldset {
+.login__form fieldset {
   display: flex;
   flex-direction: column;
 

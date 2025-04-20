@@ -1,15 +1,25 @@
-import { createUrl } from "./actions";
 import "./CreateUrl.css";
 
-export type CreateUrlProps = {};
+import { createUrl } from "./actions";
 
-export default function CreateUrl(_props: CreateUrlProps) {
+export type CreateUrlProps = {
+  userId: number;
+};
+
+export default function CreateUrl(props: CreateUrlProps) {
+  const { userId } = props;
   return (
-    <div>
-      <h1>Create URL</h1>
-      <form>
-        <input type="text" placeholder="Long URL" />
-        <button onClick={createUrl}>Create</button>
+    <div className="create__url container">
+      <h3>Create a URL</h3>
+      <form className="create__url__form">
+        <fieldset className="create__url__fieldset">
+          <label htmlFor="long">URL</label>
+          <input name="long" type="url" placeholder="Enter a URL to shorten" />
+          <input name="id" type="number" value={userId} hidden />
+          <button className="create__url__button" onClick={createUrl}>
+            Create URL
+          </button>
+        </fieldset>
       </form>
     </div>
   );
