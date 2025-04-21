@@ -11,14 +11,13 @@ const handler = async function (req, res) {
 
   try {
     if (!isEmail(email) || !isStrongPassword(password)) {
-      res.status(400).send("Invalid email address or password.");
-      return;
+      return res.status(400).send("Invalid email address or password.");
     }
 
     const user = await UserService.loginUser(email, password);
 
     if (!user) {
-      res.status(400).send("Invalid email address or password.");
+      return res.status(400).send("Invalid email address or password.");
     }
 
     console.log(`User ${user.email} logged in successfully:`);
