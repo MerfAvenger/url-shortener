@@ -14,3 +14,9 @@ export function generateSalt(): string {
     .getRandomValues(Buffer.from(new Uint8Array(16)))
     .toString("hex");
 }
+
+export async function generateSlug(): Promise<string> {
+  const randomBytes = crypto.getRandomValues(new Uint8Array(4));
+  const slug = Buffer.from(randomBytes).toString("hex");
+  return slug;
+}
