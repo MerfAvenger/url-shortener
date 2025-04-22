@@ -1,0 +1,54 @@
+.create__url__result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: fit-content;
+  height: fit-content;
+
+  border: none;
+
+  padding-bottom: 1rem;
+}
+
+.create__url__result__message {
+  padding: 0 0.5rem;
+}
+
+.create__url__result__link {
+  margin: 0.25rem;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  text-emphasis: bold;
+}
+
+.create__url__link__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  width: fit-content;
+
+  border-radius: 0.4rem;
+  background-color: var(--highlight-colour);
+}
+
+.create__url__copy__button {
+  background-color: transparent;
+  border: none;
+  margin: auto;
+  padding: 0;
+}
+
+.create__url__copy__image {
+  margin-left: 0.5rem;
+  border: none;
+
+  height: 1.5rem;
+
+  /* Generated using https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(100%) sepia(92%) saturate(0%) hue-rotate(297deg)
+    brightness(101%) contrast(106%);
+}

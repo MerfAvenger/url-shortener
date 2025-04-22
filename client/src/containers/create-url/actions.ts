@@ -1,16 +1,24 @@
 import { SyntheticEvent } from "react";
-import { URL } from "../../model";
 import { isProcessedUrl } from "../../utils/is";
 import submitFormRequest from "../../utils/request";
 
-export async function createUrl(event: SyntheticEvent): Promise<URL> {
+export async function createUrl(
+  event: SyntheticEvent,
+  onCreate: (createdShortUrl: string) => void,
+  onError: (error: string | null) => void,
+): Promise<void> {
   console.log("Submitting data to /api/create-url");
   const url = await submitFormRequest(event, "/api/create-url");
 
   if (!isProcessedUrl(url)) {
-    throw new Error("Invalid URL response");
+    onError("Failed to create URL.");
+    return;
   }
 
-  console.log("URL created successfully:", url);
-  return url;
+  const shortUrl = `${window.origin}/${url.slug}`;
+  onCreate(shortUrl);
+  // Reset the error state after a successful creation.
+  onError(null);
+
+  console.log("URL created successfully:", shortUrl);
 }

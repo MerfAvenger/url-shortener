@@ -1,5 +1,9 @@
 .create__url {
   height: 100%;
+
+  border: none;
+
+  margin: 0.75rem;
 }
 
 .create__url__form fieldset {
@@ -39,6 +43,15 @@
 }
 
 .create__url button {
-  margin-top: 1rem;
+  margin: 0 auto;
   padding: 0.25rem 0.75rem;
+}
+
+.create__url__enter__url__container {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }

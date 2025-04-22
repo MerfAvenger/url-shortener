@@ -23,12 +23,12 @@ export default async function submitFormRequest(
         "Content-Type": "application/json",
       },
     }).then(async (response) => {
-      if (response.ok) {
-        console.log(`Request to ${path} was successful.`);
-      } else {
+      if (!response.ok) {
         console.error(`Request to ${path} failed.`);
+        return null;
       }
 
+      console.log("Request to", path, "succeeded.");
       return await response.json();
     });
   }
