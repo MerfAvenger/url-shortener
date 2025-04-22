@@ -4,9 +4,11 @@
   font-weight: 400;
 
   --background-colour: #332923;
+  --background-dark-colour: #1c1c1c;
   --highlight-colour: #e68442;
   --invalid-colour: #e84a2a;
   --valid-colour: #2ae84a;
+  --link-colour: #149bde;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

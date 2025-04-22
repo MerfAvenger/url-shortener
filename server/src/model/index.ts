@@ -4,3 +4,10 @@ export type User = {
   salt: string;
   password: string;
 };
+
+export type URL = {
+  slug: string;
+  long: string;
+  visits: number;
+  user: number;
+};

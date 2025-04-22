@@ -4,7 +4,7 @@ import isEmail from "validator/lib/isEmail";
 import isStrongPassword from "validator/lib/isStrongPassword";
 
 const method: Method = "POST";
-const path = "/create-account";
+const path = "/api/create-account";
 
 const handler = async function (req, res) {
   const { email, password } = req.body;
@@ -46,8 +46,7 @@ const handler = async function (req, res) {
     }
 
     console.log("User created successfully:", email);
-
-    res.status(201).send("Account created successfully.");
+    res.status(201).send({ email: user.email, id: user.id });
   } catch (error) {
     console.error("Error creating account:", error);
     res.status(500).send("Internal server error");

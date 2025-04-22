@@ -1,7 +1,7 @@
 import type { Route, Method } from "../types";
 
 const method: Method = "GET";
-const path = "/health";
+const path = "/api/health";
 const handler = async function (_req, res) {
   res.status(200);
   res.json({

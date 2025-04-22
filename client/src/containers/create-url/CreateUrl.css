@@ -1,0 +1,57 @@
+.create__url {
+  height: 100%;
+
+  border: none;
+
+  margin: 0.75rem;
+}
+
+.create__url__form fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  min-width: 20rem;
+  width: fit-content;
+
+  border: none;
+}
+
+.create__url__form fieldset input {
+  padding: 0.25rem 0.25rem;
+  min-width: 10vw;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.create__url__form fieldset input:valid {
+  border: 0.1rem solid var(--valid-colour);
+}
+
+.create__url__form fieldset input:invalid {
+  border: 0.1rem solid var(--invalid-colour);
+}
+
+.create__url__id {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  min-width: 20rem;
+  width: 2vw;
+}
+
+.create__url button {
+  margin: 0 auto;
+  padding: 0.25rem 0.75rem;
+}
+
+.create__url__enter__url__container {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -29,3 +29,19 @@
 
   border-radius: 0.75rem 0.75rem 0 0;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-colour);
+  text-emphasis-style: bold;
+}
+
+button {
+  border: none;
+  border-radius: 0.2rem;
+  background-color: var(--background-dark-colour);
+}
