@@ -11,37 +11,13 @@
   height: 100vh;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+.home {
+  grid-column: 2;
+  grid-row: 2;
 
-  background-color: slategray;
-
-  border-radius: 0.75rem;
-  height: fit-content;
+  box-shadow: 0.5rem 0.5rem rgba(5, 5, 5, 0.5);
 }
 
-.highlight {
-  background-color: var(--highlight-colour);
-  width: 100%;
-
-  border-radius: 0.75rem 0.75rem 0 0;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--link-colour);
-  text-emphasis-style: bold;
-}
-
-button {
-  border: none;
-  border-radius: 0.2rem;
-  background-color: var(--background-dark-colour);
+.home > .highlight {
+  height: 2rem;
 }
