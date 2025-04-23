@@ -6,6 +6,7 @@ export async function login(
   event: SyntheticEvent,
   setUserEmail: (email: string | null) => void,
   setUserId: (id: number | null) => void,
+  setUrlString: (urls: string) => void,
 ): Promise<void> {
   console.log("Submitting data to /api/login");
   const user = await submitFormRequest(event, "/api/login");
@@ -13,6 +14,8 @@ export async function login(
   if (isUser(user)) {
     setUserEmail(user.email);
     setUserId(user.id);
+    // The URLs need to be stored as a string otherwise state updates will not trigger properly.
+    setUrlString(JSON.stringify(user.urls));
   } else {
     throw new Error("Invalid user response.");
   }
