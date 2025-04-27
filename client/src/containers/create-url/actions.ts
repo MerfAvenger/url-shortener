@@ -6,6 +6,7 @@ export async function createUrl(
   event: SyntheticEvent,
   onCreate: (createdShortUrl: string) => void,
   onError: (error: string | null) => void,
+  updateUrls: (newUrl: string) => void,
 ): Promise<void> {
   console.log("Submitting data to /api/create-url");
   const url = await submitFormRequest(event, "/api/create-url");
@@ -19,6 +20,7 @@ export async function createUrl(
   onCreate(shortUrl);
   // Reset the error state after a successful creation.
   onError(null);
+  updateUrls(JSON.stringify([url]));
 
   console.log("URL created successfully:", shortUrl);
 }

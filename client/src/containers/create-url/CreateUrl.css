@@ -1,9 +1,7 @@
 .create__url {
-  height: 100%;
-
   border: none;
-
-  margin: 0.75rem;
+  width: 100%;
+  
 }
 
 .create__url__form fieldset {
@@ -53,5 +51,4 @@
 
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
 }

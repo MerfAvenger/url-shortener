@@ -4,17 +4,18 @@ import "./Login.css";
 export type LoginProps = {
   setUserEmail: (email: string | null) => void;
   setUserId: (id: number | null) => void;
+  setUserUrls: (urls: string) => void;
 };
 
 export default function Login(props: LoginProps) {
-  const { setUserEmail, setUserId } = props;
+  const { setUserEmail, setUserId, setUserUrls } = props;
 
   return (
     <div className="login container">
       <form
         className="login__form"
         onSubmit={(event) => {
-          login(event, setUserEmail, setUserId).catch((error) => {
+          login(event, setUserEmail, setUserId, setUserUrls).catch((error) => {
             console.error("Login error:", error);
             alert("Login failed. Please try again.");
           });
@@ -27,10 +28,12 @@ export default function Login(props: LoginProps) {
           <div className="login__actions__buttons">
             <button
               onClick={(event) => {
-                login(event, setUserEmail, setUserId).catch((error) => {
-                  console.error("Login error:", error);
-                  alert("Login failed. Please try again.");
-                });
+                login(event, setUserEmail, setUserId, setUserUrls).catch(
+                  (error) => {
+                    console.error("Login error:", error);
+                    alert("Login failed. Please try again.");
+                  },
+                );
               }}
             >
               Log in

@@ -10,7 +10,8 @@ import { generateSlug } from "../utils/crypto";
 
 export default class URLService {
   static async getUserUrls(user: User): Promise<URL[] | null> {
-    console.log(`URL Service: Getting URLs for user ${user.email}.`);
+    console.log(`URL Service: Getting URLs for user ${user.id}.`);
+    console.log(typeof user.id);
     const client = await pool.connect();
 
     const query = {
@@ -30,11 +31,12 @@ export default class URLService {
             visits: urlData.visits,
           }));
         }
+        console.warn(`No URLs found for user ${user.id}.`);
         return null;
       })
       .catch((error) => {
         console.error(
-          `URL Service: Error getting URLs for user ${user.email}:`,
+          `URL Service: Error getting URLs for user ${user.id}:`,
           error
         );
         throw error;

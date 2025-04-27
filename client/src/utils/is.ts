@@ -14,6 +14,15 @@ export function isProcessedUrl(processedUrl: any): processedUrl is URL {
   );
 }
 
+export function isProcessedUrlArray(
+  processedUrlArray: any,
+): processedUrlArray is URL[] {
+  return (
+    Array.isArray(processedUrlArray) &&
+    processedUrlArray.every((url) => isProcessedUrl(url))
+  );
+}
+
 export function isUser(user: any): user is User {
   return (
     user &&

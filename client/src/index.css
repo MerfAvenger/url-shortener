@@ -3,6 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --background-light-colour: #2a2a2a;
   --background-colour: #332923;
   --background-dark-colour: #1c1c1c;
   --highlight-colour: #e68442;
@@ -18,4 +19,47 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: slategray;
+
+  border-radius: 0.75rem;
+  height: fit-content;
+}
+
+.highlight {
+  background-color: var(--highlight-colour);
+  width: 100%;
+
+  border-radius: 0.75rem 0.75rem 0 0;
+
+  height: 2rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-colour);
+  text-emphasis-style: bold;
+}
+
+fieldset input {
+  background-color: var(--background-light-colour);
+  margin: 0 1rem;
+}
+
+button {
+  border: none;
+  border-radius: 0.2rem;
+  background-color: var(--background-light-colour);
+  margin: 0 0.5rem;
 }
