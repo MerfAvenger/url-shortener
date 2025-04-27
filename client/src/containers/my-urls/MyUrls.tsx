@@ -1,3 +1,5 @@
+import "./MyUrls.css";
+
 import { useMemo } from "react";
 import { parseUrlString } from "./actions";
 import { URL } from "../../model";
@@ -26,9 +28,10 @@ export default function MyUrls(props: MyUrlsProps) {
   }, [urlString]);
 
   return (
-    <div className="my__urls__container">
+    <div className="my__urls container">
+      <div className="highlight" />
       <h2 className="my__urls__title">My URLs</h2>
-      {renderUrls(urls)}
+      <div className="my__urls__list">{renderUrls(urls)}</div>
     </div>
   );
 }

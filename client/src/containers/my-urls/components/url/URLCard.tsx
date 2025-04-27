@@ -12,10 +12,14 @@ export default function URLCard(props: URLCardProps) {
   const url = window.origin + "/" + slug;
 
   return (
-    <div className="url__container">
+    <div className="url__card">
       <a href={url}>{url}</a>
-      <p>Long URL: {long}</p>
-      <p>Visits: {visits}</p>
+      <div className="url__card__details">
+        <p>{long}</p>
+        <p>
+          <b>{visits}</b> Visits
+        </p>
+      </div>
     </div>
   );
 }

@@ -7,10 +7,11 @@ import CreateUrlSuccess from "./components/create-url-success/CreateUrlSuccess";
 
 export type CreateUrlProps = {
   userId: number;
+  updateUrls: (newUrlString: string) => void;
 };
 
 export default function CreateUrl(props: CreateUrlProps) {
-  const { userId } = props;
+  const { userId, updateUrls } = props;
   const [createdUrl, setCreatedUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,10 +25,13 @@ export default function CreateUrl(props: CreateUrlProps) {
               name="long"
               type="url"
               placeholder="Enter a URL to shorten"
+              required
             />
             <button
               className="create__url__button"
-              onClick={(event) => createUrl(event, setCreatedUrl, setError)}
+              onClick={(event) =>
+                createUrl(event, setCreatedUrl, setError, updateUrls)
+              }
             >
               Shorten URL
             </button>
