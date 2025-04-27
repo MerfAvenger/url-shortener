@@ -3,6 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --background-light-colour: #2a2a2a;
   --background-colour: #332923;
   --background-dark-colour: #1c1c1c;
   --highlight-colour: #e68442;
@@ -37,6 +38,8 @@
   width: 100%;
 
   border-radius: 0.75rem 0.75rem 0 0;
+
+  height: 2rem;
 }
 
 a {
@@ -49,8 +52,14 @@ a:hover {
   text-emphasis-style: bold;
 }
 
+fieldset input {
+  background-color: var(--background-light-colour);
+  margin: 0 1rem;
+}
+
 button {
   border: none;
   border-radius: 0.2rem;
-  background-color: var(--background-dark-colour);
+  background-color: var(--background-light-colour);
+  margin: 0 0.5rem;
 }
