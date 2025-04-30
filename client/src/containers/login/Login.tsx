@@ -42,7 +42,9 @@ export default function Login(props: LoginProps) {
               onClick={(event) => {
                 createAccount(event, setUserEmail, setUserId).catch((error) => {
                   console.error("Create account error:", error);
-                  alert("Account creation failed. Please try again.");
+                  alert(
+                    "Account creation failed. Please try again or use a different email address.",
+                  );
                 });
               }}
             >

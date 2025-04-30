@@ -68,7 +68,7 @@ To configure your `.env` file:
 ### Docker
 
 - The `App.Dockerfile` orchestrates building and deploying the client and the server application, since the server will also be serving the app.
-- The `Database.Dockerfile` extends the
+- The `Database.Dockerfile` extends the `postgres-alpine` image, and injects the initialisation SQL script `/scripts/init.sql` to set up the database should it not already exist.
 
 ## Feature Notes
 

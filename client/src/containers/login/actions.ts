@@ -30,10 +30,14 @@ export async function createAccount(
   console.log("Submitting data to /api/create-account");
   const user = await submitFormRequest(event, "/api/create-account");
 
+  if (!user) {
+    throw new Error("Invalid user in create account response.");
+  }
+
   if (isUser(user)) {
+    console.log("Account created successfully:", user);
+
     setUserEmail(user.email);
     setUserId(user.id);
   }
-
-  console.log("Account created successfully:", user);
 }
